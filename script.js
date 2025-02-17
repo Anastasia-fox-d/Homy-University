@@ -75,7 +75,7 @@ function generateCalendar() {
 
 // Инициализация прогресс-бара
 const progressBarFill = document.getElementById('progress-bar-fill');
-progressBarFill.style.width = '75%'; // Установка начального значения
+progressBarFill.style.width = '5%'; // Установка начального значения
 
 // Генерация календаря при загрузке страницы
 generateCalendar();
