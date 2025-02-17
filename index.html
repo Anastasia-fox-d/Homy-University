@@ -1,35 +1,329 @@
+```html
 <!DOCTYPE html>
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Домашний университет</title>
-    <link rel="stylesheet" href="css/styles.css">
+    <title>Домашний Университет</title>
+    <style>
+        body {
+            font-family: 'Baskerville', 'Times New Roman', serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #f9f7f6, #eaeaea);
+            color: #333;
+            line-height: 1.8;
+        }
+
+        header {
+            background: linear-gradient(135deg, #6c5b7b, #355c7d);
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        header h1 {
+            font-size: 3rem;
+            margin: 0;
+            font-family: 'Playfair Display', serif;
+            letter-spacing: 1px;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            font-style: italic;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem;
+        }
+
+        section {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+            margin: 2rem 0;
+            padding: 2rem;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 0.8rem 1.6rem;
+            margin: 0.5rem;
+            font-size: 1rem;
+            color: white;
+            background-color: #6c5b7b;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            font-family: 'Baskerville', 'Times New Roman', serif;
+        }
+
+        .button:hover {
+            background-color: #355c7d;
+            transform: scale(1.05);
+        }
+
+        footer {
+            text-align: center;
+            padding: 1.5rem 0;
+            background-color: #6c5b7b;
+            color: white;
+            margin-top: 2rem;
+            font-style: italic;
+        }
+
+        /* Шкала готовности */
+        .progress-bar {
+            width: 100%;
+            height: 20px;
+            background-color: #e0e0e0;
+            border-radius: 12px;
+            overflow: hidden;
+            margin-top: 1rem;
+        }
+
+        .progress-bar-fill {
+            height: 100%;
+            background: linear-gradient(135deg, #6c5b7b, #355c7d);
+            width: 75%; /* Пример заполнения */
+            transition: width 0.5s ease;
+        }
+
+        /* Категории */
+        .categories {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .category-button {
+            background: linear-gradient(135deg, #dfe4ea, #bdc3c7);
+            color: #333;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-family: 'Baskerville', 'Times New Roman', serif;
+            transition: background 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .category-button:hover {
+            background: linear-gradient(135deg, #bdc3c7, #dfe4ea);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Календарь */
+        .calendar {
+            border: 2px solid #dfe4ea;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-top: 1.5rem;
+            background: #fff;
+        }
+
+        .calendar table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .calendar th, .calendar td {
+            padding: 0.75rem;
+            text-align: center;
+            border: 1px solid #dfe4ea;
+        }
+
+        .calendar th {
+            background-color: #f7f7f7;
+        }
+
+        /* Заметки */
+        .notes {
+            margin-top: 1.5rem;
+        }
+
+        .note-item {
+            background: #fafafa;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border-radius: 12px;
+            border-left: 6px solid #6c5b7b;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .note-title {
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            font-style: italic;
+        }
+
+        .add-note {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 1.5rem;
+        }
+
+        .add-note input {
+            padding: 0.75rem;
+            width: 70%;
+            border: 2px solid #dfe4ea;
+            border-radius: 12px;
+            font-family: 'Baskerville', 'Times New Roman', serif;
+        }
+
+        .add-note button {
+            padding: 0.75rem 1.5rem;
+            background-color: #6c5b7b;
+            color: white;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            font-family: 'Baskerville', 'Times New Roman', serif;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .add-note button:hover {
+            background-color: #355c7d;
+            transform: scale(1.05);
+        }
+    </style>
 </head>
 <body>
     <header>
-        <img src="images/logo.png">
-        <h1>Домашний университет</h1>
-        <p>Учись дома с удовольствием!</p>
+        <h1>Домашний Университет</h1>
+        <p>Ваш личный центр обучения и развития.</p>
     </header>
 
-    <nav>
-        <ul>
-            <li><a href="index.html">Главная</a></li>
-            <li><a href="about.html">О нас</a></li>
-            <li><a href="courses.html">Курсы</a></li>
-        </ul>
-    </nav>
+    <div class="container">
+        <section>
+            <h2>О нас</h2>
+            <p>Домашний Университет — это пространство для изучения новых навыков и расширения знаний. Мы предоставляем доступ к образовательным материалам, курсам и ресурсам, чтобы каждый мог учиться в удобном темпе.</p>
+        </section>
 
-    <main>
-        <h2>Добро пожаловать!</h2>
-        <p>Этот сайт создан для тех, кто хочет учиться новому из любой точки мира.</p>
-    </main>
+        <section>
+            <h2>Шкала готовности материалов</h2>
+            <div class="progress-bar">
+                <div class="progress-bar-fill"></div>
+            </div>
+            <p style="text-align: center; margin-top: 0.5rem;">75% материалов доступны сейчас</p>
+        </section>
+
+        <section>
+            <h2>Категории</h2>
+            <div class="categories">
+                <button class="category-button">English</button>
+                <button class="category-button">Психология</button>
+                <button class="category-button">Педагогика</button>
+                <button class="category-button">Классика</button>
+                <button class="category-button">Movies</button>
+            </div>
+        </section>
+
+        <section>
+            <h2>Календарь мероприятий</h2>
+            <div class="calendar">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Пн</th>
+                            <th>Вт</th>
+                            <th>Ср</th>
+                            <th>Чт</th>
+                            <th>Пт</th>
+                            <th>Сб</th>
+                            <th>Вс</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>2</td>
+                            <td>3</td>
+                            <td>4</td>
+                            <td>5</td>
+                            <td>6</td>
+                            <td>7</td>
+                        </tr>
+                        <tr>
+                            <td>8</td>
+                            <td>9</td>
+                            <td>10</td>
+                            <td>11</td>
+                            <td>12</td>
+                            <td>13</td>
+                            <td>14</td>
+                        </tr>
+                        <tr>
+                            <td>15</td>
+                            <td>16</td>
+                            <td>17</td>
+                            <td>18</td>
+                            <td>19</td>
+                            <td>20</td>
+                            <td>21</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section>
+            <h2>Заметки</h2>
+            <div class="notes">
+                <div class="note-item">
+                    <div class="note-title">Первая заметка</div>
+                    <p>Это пример текста вашей заметки.</p>
+                </div>
+                <div class="note-item">
+                    <div class="note-title">Вторая заметка</div>
+                    <p>Добавьте свои важные идеи здесь.</p>
+                </div>
+                <div class="add-note">
+                    <input type="text" id="note-input" placeholder="Введите заметку...">
+                    <button onclick="addNote()">Добавить</button>
+                </div>
+            </div>
+        </section>
+    </div>
 
     <footer>
-        &copy; 2023 Домашний университет
+        <p>&copy; 2023 Домашний Университет. Все права защищены.</p>
     </footer>
 
-    <script src="js/script.js"></script>
+    <script>
+        function addNote() {
+            const input = document.getElementById('note-input');
+            const notesSection = document.querySelector('.notes');
+            const noteText = input.value.trim();
+
+            if (noteText) {
+                const noteItem = document.createElement('div');
+                noteItem.className = 'note-item';
+
+                const noteTitle = document.createElement('div');
+                noteTitle.className = 'note-title';
+                noteTitle.textContent = 'Новая заметка';
+
+                const noteContent = document.createElement('p');
+                noteContent.textContent = noteText;
+
+                noteItem.appendChild(noteTitle);
+                noteItem.appendChild(noteContent);
+
+                notesSection.insertBefore(noteItem, document.querySelector('.add-note'));
+
+                input.value = '';
+            }
+        }
+    </script>
 </body>
 </html>
